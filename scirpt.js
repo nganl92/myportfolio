@@ -95,13 +95,12 @@ function getLocalTime () {
 
 function showSvg () {
     gsap.to("#section0 .c-title__svg", {
-        delay: -1,
+        delay: -1.5,
         opacity: 1,
     })
 }
 
 
-console.log(window.innerWidth)
 function animateHomePage() {
     var tl = gsap.timeline();
 
@@ -127,14 +126,14 @@ function animateHomePage() {
         .to(".char", {
             y: 0,
             stagger: 0.05,
-            delay: 0.2,
+            delay: -0.6,
             duration: 0.1,
         })
 
         .to(".child", {
             y: 0,
             stagger: 0.05,
-            delay: 0.2,
+            delay: -0.6,
             duration: 0.4,
         })
 
@@ -158,18 +157,17 @@ function animateHomePage() {
 }
 
 
-window.onbeforeunload = function () {
-    window.scrollTo(0, 0);
-};
-
 if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
 }
-window.scrollTo(0, 0);
 
-setTimeout(() => {
-    document.body.style.overflow = "auto"; 
-}, 10);
+// Cuộn về đầu trang khi tải xong (mượt hơn)
+window.addEventListener('load', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setTimeout(() => {
+        document.body.style.overflow = 'auto'; // Bật thanh cuộn
+    }, 500);
+});
 
 
 function cardHoverEffect() {
@@ -191,7 +189,7 @@ function cardHoverEffect() {
             }
 
             // Lưu vị trí chuột thay vì cập nhật trực tiếp
-            mouseX = e.clientX;
+            mouseX = e.clientX - 20;
             mouseY = e.clientY;
 
             showingImage.style.filter = "grayscale(1)";
@@ -591,7 +589,28 @@ blocks.forEach((block) =>{
 })
 }
 
-
+// Liink List Effect 
+const LinkEl = document.querySelectorAll(".link-item a");
+        LinkEl.forEach(function(el) {
+            gsap.killTweensOf(el.querySelector(".link-item .parent"));
+            el.addEventListener('mouseenter', function() {
+                gsap.to(el.querySelector(".link-item .parent"), {
+                    y: "-100%",
+                    duration: 0.4,
+                    ease: Power3.easeInOut
+                });
+            });
+            
+            el.addEventListener('mouseleave', function() {
+                gsap.killTweensOf(el.querySelector(".link-item .parent"));
+                gsap.to(el.querySelector(".link-item .parent"), {
+                    y: 0,
+                    duration: 0,
+                    ease: Power3.easeInOut
+                });
+            });
+    
+        });
 
 // can't scroll website until click start button
 function enableScroll() {
@@ -695,6 +714,7 @@ checkEmail();
 
 const skills = [
     { name: "html", percent: "60%" },
+    { name: "ex", percent: "60%" },
     { name: "ai", percent: "60%" },
     { name: "pts", percent: "55%" },
     { name: "c", percent: "30%" },

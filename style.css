@@ -21,7 +21,6 @@ body{
 
 html {
     overflow: hidden;
-
     font-family: "Poppins", sans-serif;
     font-size: 20px;
 
@@ -340,6 +339,8 @@ html {
     width: 100%;
 }
 
+
+
 /* Section 0 */ 
 
 #section0 {
@@ -459,7 +460,6 @@ html {
     justify-content: center;
 }
 
-
 .overlay-left {
     background-color: black;
     color: #EE5745;
@@ -554,7 +554,8 @@ html {
     width: 100%;
     height: 100%;
     mix-blend-mode: screen;
-    background-color: #fd5530;
+    background-color: #051c44;
+    opacity: 0.;
 }
 
 #imgright .img-blocks {
@@ -572,7 +573,7 @@ html {
     height: 50px;
     opacity: 0;
     mix-blend-mode: hard-light;
-    background-color: #fff989;
+    background-color: #73b4e9;
     transition: opacity 0.3s ease-in;
 }
 
@@ -678,6 +679,90 @@ html {
     
 }
 
+.link-lists {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10%;
+}
+
+.link-lists h1 {
+    font-size: max(1.5vw, 20px);
+    color: #474747;
+}
+
+.link-lists .link-item {
+    display: inline;
+    flex-direction: column;
+}
+
+
+
+.link-lists .span-2 {
+    color: var(--primary-color);
+}
+
+.link-lists .span-2 {
+    position: absolute;
+    transform: translateY(100%)
+}
+
+/* Link underline */
+
+.link-item .parent {
+    display: flex;
+    flex-direction: column;
+    
+}
+.link-item a {
+    display: inline-block;
+    text-decoration: none;
+    overflow: hidden;
+    position: relative;
+    color: #fff;
+    font-weight: 300;
+}
+.link-item a .line {
+    position: absolute;
+    display: inline-block;
+    height: 1px;
+    border-radius: 10px;
+    bottom: 0;
+}
+
+
+.link-item a:hover #line2 {
+    width: 0; 
+}
+
+.link-item a:hover #line1 {
+    width: 100%;
+}
+
+.link-item #line1 {
+    background-color: var(--primary-color);
+    left: 0;
+    width: 0%;
+    transition: all cubic-bezier(0.19,1,0.22,1) 0.8s;
+    transition-delay: .2s;
+}
+
+.link-item a .line {
+    position: absolute;
+    display: inline-block;
+    height: 1px;
+    border-radius: 10px;
+    bottom: 0;
+}
+
+.link-item #line2 {
+    right: 0;
+    transition: all cubic-bezier(0.19,1,0.22,1) 0.8s;
+    width: 100%;
+    background-color: #ffffff;
+}
+
+
+/* Cursor */
 #cursor {
     position: fixed;
     width: 17vw;
@@ -695,6 +780,48 @@ html {
     pointer-events: none;
     transition: transform .5s ease; 
 
+}
+
+.cursor-bar{
+    display: flex;
+    align-items: center;
+    position: relative;
+    left: 0;
+    width: 100%;
+    height: 15px;
+    background-color: rgb(175, 175, 175);
+    opacity: 0.6;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+} 
+
+.cursor-bar_ball {
+    position: relative;
+    margin-left: 20px;
+    width: 8px;
+    height: 8px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+}
+
+.cursor-bar_ball::before {
+    content: "";
+    position: absolute;
+    width: 8px; 
+    left: -12px;
+    height: 8px;
+   background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+}
+
+.cursor-bar_ball::after {
+    content: "";
+    position: absolute;
+    width: 8px; 
+    left: 12px;
+    height: 8px;  
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
 }
 
 #cursor .crow {
@@ -722,11 +849,12 @@ html {
 #elem {
     width: 100%;
     position: relative;
-    border-radius: 10px;
 }
 
 #elem img {
     width: 100%;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
     opacity: 0;
     animation:  an 5s linear infinite;
     position: absolute;
@@ -1215,62 +1343,56 @@ footer .info a {
     font-family: 'Gilroy-ThinItalic', sans-serif;
 }
 
-.bento-grid {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 3 cột bằng nhau */
-    grid-template-rows: repeat(3, 550px); /* 3 hàng, mỗi hàng cao 150px */
-    gap: 20px; /* Khoảng cách giữa các item */
-    padding: 20px;
-    border-radius: 20px;
-    max-width: 100%;
-    background-color: #fff;
-}
-
-.bento-item {
+#images {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    font-weight: bold;
-    color: white;
-    border-radius: 15px;
-    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    align-items: flex-end;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+    gap: 8rem;
+}
+
+#images .cnt {
     overflow: hidden;
+    border-radius: 30px;
 }
 
-.bento-item:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.9);
+#images .cnt img {
+    transition: transform .5s cubic-bezier(0.19, 1, 0.22, 1);
+
 }
 
-/* Điều chỉnh kích thước và vị trí của các item */
-.item-1 {
-    grid-column: 1 / 3;
-    grid-row: 1 / 2;
+#images .cnt:hover {
+    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.5);
 }
 
-.item-2 {
-    grid-column: 3 / 6;
-    grid-row: 1 / 2;
+#images .cnt:hover img {
+    transform: scale(1.05);
+}
+#images .cnt1 {
+    width: 45%;
 }
 
-.item-3 {
-    grid-column: 1 / 4;
-    grid-row: 2 / 3;
+#images .cnt2 {
+    width: 40%;
 }
 
-.item-4 {
-    grid-column: 4 / 6;
-    grid-row: 2 / 4;
+#images .cnt3 {
+    width: 50%;
+    margin-left: 25%;
 }
 
-.item-5 {
-    grid-column: 1 / 4;
-    grid-row: 3 / 4;
+#images .cnt4 {
+    width: 40%;
+    position: relative;
+    top: -4rem;
 }
 
-.maxHeight {
+#images .cnt5 {
+    width: 45%;
+}
+
+#images .cnt img {
     width: 100%;
 }
 
@@ -1341,11 +1463,11 @@ footer .info a {
 }
 
 @media (max-width: 819px) { 
+
     * {
         box-sizing: border-box;
         margin: 0;
         padding: 0;
-
     }
 
     #imagery #imgleft span {
@@ -1388,9 +1510,6 @@ footer .info a {
         width: 80%;
     }
 
-    #home {
-
-    }
 
     /* nav */
     #home #nav {
@@ -1461,10 +1580,6 @@ footer .info a {
 
     .text-center {
         text-align: center;
-    }
-
-    #images .cnt .maxHeight {
-        height: 320px;
     }
 
   
@@ -1538,6 +1653,11 @@ footer .info a {
         text-align: center;
     }
 
+    .overlay-left {
+        text-align: center;
+    }
+
+
     #imgright .img-container {
         width: 300px;
         height: 400px;
@@ -1548,14 +1668,47 @@ footer .info a {
         height: 30px;
     }
 
-    .bento-grid {
-        width: 100%;
+    .row h1 {
+        margin-bottom: 2rem;
+    }
+
+   
+    #images {
         display: flex;
         flex-direction: column;
-        gap: 30px;
-        padding: 20px;
-        border-radius: 20px;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        width: 100%;
+        gap: 2rem;
     }
+
+    #images .cnt1,
+    #images .cnt2,
+    #images .cnt3,
+    #images .cnt4,
+    #images .cnt5{
+        width: 100%;
+    }
+
+    #images .cnt3 {
+        margin: 0;
+    }
+
+    #images .cnt4 {
+        position: relative;
+        top: 0;
+    }
+
+    .link-lists {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin-top: 3rem;
+        margin-left: 0;
+    }
+
 
     #contact-form {
         padding: 100px 0 50px 0;
@@ -1582,7 +1735,7 @@ footer .info a {
 
     footer {
         padding: 10vh 5vw 0;
-        height: 190vh;
+        height: 140vh;
     }
 
     footer h2 {
@@ -1653,6 +1806,15 @@ footer .info a {
     #playMusic {
         bottom: 50%;
         right: -30px;
+    }
+
+    .link-lists {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin-top: 3rem;
+        margin-left: 0;
     }
 
 
@@ -1768,23 +1930,39 @@ footer .info a {
         transition: opacity 0.3s ease-in;
     }
 
-   
-    #images .cnt .maxHeight {
-        position: -10px;
-        width: 100%;
-        height: auto;
+    .row h1 {
+        margin-bottom: 4rem;
     }
 
-
-    .bento-grid {
-        width: 100%;
+   
+    #images {
         display: flex;
         flex-direction: column;
-        gap: 30px;
-        padding: 20px;
-        border-radius: 20px;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        width: 100%;
+        gap: 4rem;
     }
 
+    #images .cnt1,
+    #images .cnt2,
+    #images .cnt3,
+    #images .cnt4,
+    #images .cnt5{
+        width: 100%;
+    }
+
+    #images .cnt3 {
+        margin: 0;
+    }
+
+    #images .cnt4 {
+    position: relative;
+    top: 0;
+}
+
+    
     #contact-form {
         padding: 5vh 5vw 0;
         height: auto;
@@ -1951,4 +2129,28 @@ footer .info a {
         position: absolute;
         width: 50%;
     }
+
+    
+#images .cnt1 {
+    width: 50%;
+}
+
+#images .cnt2 {
+    width: 40%;
+}
+
+#images .cnt3 {
+    width: 50%;
+    margin-left: 30%;
+}
+
+#images .cnt4 {
+    width: 40%;
+    position: relative;
+    top: -9rem;
+}
+
+#images .cnt5 {
+    width: 50%;
+}
 }  
