@@ -381,7 +381,7 @@ html {
 
 #section0 .c-title__row h1{
     text-transform: uppercase;
-    font-family: 'Roboto', sans-ser;
+    font-family: 'Roboto', sans-serif;
     font-style: italic;
     font-weight: 600;
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
@@ -2114,6 +2114,11 @@ footer .info a {
         height: 750px;
         overflow: hidden;
         border-radius: 30px;
+    }
+
+    #imgright .block {
+        width: 60px;
+        height: 60px;
     }
 
     #skill {
