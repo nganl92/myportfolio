@@ -736,3 +736,49 @@ const skills = [
       }
     );
   });
+
+
+//   work info
+
+function work() {
+    const ImgElement = document.querySelectorAll('.cnt a img');
+    const workItems = document.querySelector('.cnt')
+    
+    const text = [
+        {title:'Logo', desc: 'By Illustrator'},
+        {title:'Poster', desc: 'By Photoshop'},
+        {title:'Netflix Clone', desc: 'By React & NodeJS'},
+        {title:'Hotel Booking', desc: 'By React & NodeJS'},
+        {title:'Food App', desc: 'By React & NodeJS'},
+    ]
+    
+    ImgElement.forEach(ctn => {
+         ctn.addEventListener('mouseenter', function (e) { 
+            console.log(e.target.parentElement.parentElement)
+            const imageIndex = e.target.dataset.index;
+            var title = document.createElement('p');
+            var decs = document.createElement('p');
+
+            title.classList.add('work-title');
+            decs.classList.add('work-desc');
+
+            title.innerHTML = text[imageIndex].title;
+            decs.innerHTML = text[imageIndex].desc;
+
+            e.target.parentElement.parentElement.appendChild(title);
+            e.target.parentElement.parentElement.appendChild(decs)
+         })
+
+          ctn.addEventListener('mouseleave', function (e) {
+            console.log(123)
+            const title = e.target.parentElement.parentElement.querySelector('.work-title');
+            const desc = e.target.parentElement.parentElement.querySelector('.work-desc');
+
+            if (title) title.remove();
+            if (desc) desc.remove();
+
+        })
+    });
+
+}
+work()

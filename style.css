@@ -554,7 +554,7 @@ html {
     width: 100%;
     height: 100%;
     mix-blend-mode: screen;
-    background-color: #051c44;
+    background-color: #f1685990;
     opacity: 0.;
 }
 
@@ -573,7 +573,7 @@ html {
     height: 50px;
     opacity: 0;
     mix-blend-mode: hard-light;
-    background-color: #73b4e9;
+    background-color: #f19b59af;
     transition: opacity 0.3s ease-in;
 }
 
@@ -666,6 +666,7 @@ html {
     width: 100%;
     overflow: hidden;
     transition: filter cubic-bezier(0.19, 1, 0.22, 1) 2s;
+    position: relative;
 }
 
 .cnt img {
@@ -678,6 +679,48 @@ html {
     height: 1300px; 
     
 }
+
+#images .cnt .work-title {
+    position: absolute;
+    color: #444;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    max-width: 250px;
+    left: 20px;
+    bottom: 90px;
+    animation: fadeInUp 0.5s ease-in-out;
+     box-shadow: 0 8px 8px rgba(0, 0, 0, 0.5);
+
+}
+
+#images .cnt .work-desc {
+    position: absolute;
+    color: #444;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    max-width: 250px;
+    bottom: 30px;
+    left: 20px;
+    animation: fadeInUp 0.5s ease-in-out;
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.5);
+
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+}
+
+
 
 .link-lists {
     display: flex;
@@ -793,6 +836,7 @@ html {
     opacity: 0.6;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
+    
 } 
 
 .cursor-bar_ball {
@@ -844,6 +888,7 @@ html {
     padding: .7vw 3vw;
     border-radius: 100px;
     background-color: #fff;
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.5);
 }
 
 #elem {
