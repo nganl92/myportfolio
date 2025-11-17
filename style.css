@@ -708,6 +708,20 @@ html {
 
 }
 
+#images .cnt .view-more {
+    position: absolute;
+    color: #444;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    max-width: 250px;
+    bottom: 30px;
+    right: 20px;
+    animation: fadeInUp 0.5s ease-in-out;
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.5);
+
+}
+
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -2204,3 +2218,4 @@ footer .info a {
     width: 50%;
 }
 }  
+

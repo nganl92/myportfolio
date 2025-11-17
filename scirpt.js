@@ -758,24 +758,30 @@ function work() {
             const imageIndex = e.target.dataset.index;
             var title = document.createElement('p');
             var decs = document.createElement('p');
+            var viewMore = document.createElement('p');
 
             title.classList.add('work-title');
             decs.classList.add('work-desc');
+            viewMore.classList.add('view-more');
 
+
+            viewMore.innerHTML = 'Click to view more';
             title.innerHTML = text[imageIndex].title;
             decs.innerHTML = text[imageIndex].desc;
 
             e.target.parentElement.parentElement.appendChild(title);
             e.target.parentElement.parentElement.appendChild(decs)
+            e.target.parentElement.parentElement.appendChild(viewMore)
          })
 
           ctn.addEventListener('mouseleave', function (e) {
-            console.log(123)
             const title = e.target.parentElement.parentElement.querySelector('.work-title');
             const desc = e.target.parentElement.parentElement.querySelector('.work-desc');
+            const viewMore = e.target.parentElement.parentElement.querySelector('.view-more');
 
             if (title) title.remove();
             if (desc) desc.remove();
+            if (viewMore) viewMore.remove();
 
         })
     });
